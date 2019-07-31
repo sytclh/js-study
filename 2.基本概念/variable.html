@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变量</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. JavaScript变量是松散类型的，可以保存任何类型的数据
+        // var定义一个变量，未经过初始化的变量默认是undefined
+        // var message;
+
+        // 2. 变量赋值可以修改值的同时修改值的类型
+        // var message = "hi";
+        // message = 100;
+
+        // 3. 如果在函数中使用var定义一个变量，那么这个变量会在函数退出后销毁
+        function test() {
+            var message = "hi"; // 局部变量
+            // message = "hi";  // 省略var创建一个全局变量，只要调用过test就可以被访问到。不推荐。
+        }
+        test();
+        alert(message);  // 错误！message is not defined
+
+        // 4. 可以使用一条语句定义多个变量，中间用逗号隔开
+        var message = "hi",
+            found = false,
+            age = 29;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据类型</title>
+</head>
+
+<body>
+    <ol>
+        <li>基本数据类型：Undefined、Null、Boolean、Number和String</li>
+        <li>复杂数据类型：Object，Object本质上是由一组无序的名值对组成</li>
+    </ol>
+    <p>typeof操作符负责检测给定变量的数据类型</p>
+    <ul>
+        <li>undefined ---- 如果值未定义</li>
+        <li>boolean ---- 如果值是布尔值</li>
+        <li>string ---- 如果值是字符串</li>
+        <li>number ---- 如果值是数值</li>
+        <li>object ---- 如果值是对象或null</li>
+        <li>function ---- 如果值是函数</li>
+    </ul>
+    <script>
+        var obj = {};
+        function func() {
+
+        }
+        console.log(typeof a);      // undefined
+        console.log(typeof true);   // boolean
+        console.log(typeof "a");    // string
+        console.log(typeof 1);      // number
+        console.log(typeof null);   // object
+        console.log(typeof obj);    // object
+        console.log(typeof func);   // function
+
+        // 1. Undefined类型只有一个值，即undefined。声明变量但未初始化时，默认值undefined
+        var message;  // 等同于 var message = undefined;
+        console.log(message == undefined);  // true
+        // var age;  // 包含undefined值的变量与尚未定义的变量是不一样的。尚未定义的变量只能执行typeof操作
+        // console.log(age); // 错误 age is not defined
+
+        // 2. Null类型只有一个值，即null。表示一个空对象指针。
+        // 如果定义的变量在将来用于保存对象，那么最好将该变量初始化为null。
+        var car = null;
+        if (car != null) {
+            // 执行操作
+        }
+        // 因为undefined值是派生自null值，所以它们的值相等
+        console.log(null == undefined)
+
+        // 3. Boolean类型只有两个字面值：true和false
+        // JavaScript中所有类型的值都有与两个Boolean值等价的值。调用Boolean()函数
+        // ""(空字符串)，0或NaN，null，undefined可以转化为false
+
+        // 4. Number类型包含整数和浮点数值
+        var intNum = 55;  // 整数
+        var octalNum1 = 070;  // 八进制表示，以0开头，严格模式下无效
+        var octalNum2 = 079; // 无效的八进制---忽略前导零，解析为79
+        var hexNum1 = 0xA; // 十六进制表示，以0x开头，英文字母不区分大小写
+        // var hexNum2 = 0x1g; // 无效的十六进制会报错  Uncaught SyntaxError: Invalid or unexpected token
+        // 浮点数值必须包含小数点，且小数点后至少有一位数字
+        var floatNum1 = 1.1;
+        var floatNum2 = .1;  // 有效，但不推荐
+        // 由于保存浮点数需要的内存空间是保存整数值的两倍，所以浮点数有时会转换成整数
+        var floatNum3 = 1.;  // 小数点后没有数字--解析为1
+        var floatNum4 = 1.0; // 小数点后全是0--是一个整数，解析为1
+        // e表示法(科学计数法)表示极大或极小的浮点数
+        var floatNum5 = 3.125e7;  // 等于31250000
+        // 浮点数值的最高精度是17位小数，计算会产生舍入误差的问题
+        0.2 - 0.1 != 0.3 - 0.2;
+        // NaN,(Not a Number)非数值是一个特殊的数值，用于表示一个本来要返回数值的操作数未返回数值的情况
+        NaN != NaN;  // NaN与任何值都不相等  isNaN()所有不可以转换成数值的都会返回true
+
+        // 5. String类型用于表示由零或多个16位Unicode字符组成的字符序列，即字符串。字符串是不可变的
+        // 字符字面量也叫转义序列，用于表示非打印字符
+        /**
+         * \n       换行
+         * \t       制表
+         * \b       空格
+         * \r       回车
+         * \f       换页或者进纸
+         * \\       斜杠
+         * \'       单引号
+         * \"       双引号
+         * \xnn     以十六进制代码nn表示的一个字符  一个字节八位
+         * \xnnnn   以十六进制代码nnnn表示的一个Unicode字符  两个字节十六位
+         */
+        // String()函数将任何类型的值转成字符串
+        /**
+         * 如果值有toString()方法，则调用该方法；
+         * 如果值是null，则返回"null"；
+         * 如果值是undefined，则返回"undefined"。
+         */ 
+
+        //  6. Object的每个实例都具有下列属性或方法
+        /**
+         * Constructor: 保存创建当前对象的函数；
+         * hasOwnProperty(propertyName): 用于检查给定的属性在当前对象实例中(而不是在实例的原型中)是否存在；
+         * isPrototyoeOf(object): 用于检查传入的对象是否是另一个对象的原型；
+         * propertyIsEnumerable(propertyName): 检查给定的属性是否能够使用for-in枚举
+         * toLocaleString(): 返回对象的字符串表示，该字符串与执行环境的地区对应
+         * toString(): 返回对象的字符串表示
+         * valueOf(): 返回对象的字符串、数值或布尔值表示。通常与toString()返回值相同
+         */ 
+    </script>
+</body>
+
+</html>

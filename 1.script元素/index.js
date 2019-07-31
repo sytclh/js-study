@@ -1,0 +1,1 @@
+// 这里是外部文件JavaScript
